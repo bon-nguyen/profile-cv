@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from 'react-scroll';
 
 // CloseIcon, Icon, SidebarContainer,SideBarWrap,SidebarLink,SidebarNav
@@ -14,12 +13,7 @@ export const SidebarContainer = styled.aside`
     }
 
 `
-export const CloseIcon = styled.div`
 
-`
-export const Icon = styled.div`
-
-`
 
 export const SideBarWrap = styled.div`
     position: relative;

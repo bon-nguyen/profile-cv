@@ -11,7 +11,8 @@ export const Button = styled(LinkS)`
     box-shadow: 0 0 13px 0 rgb(0 0 0 / 29%);
     font-weight: 500;
     cursor: pointer;
-    padding: 12px 16px;
+    padding: 1rem 1.75rem;
+    justify-content: center;
 
     /*Color, background, size,  */ 
     color: ${({dark}) => (dark ? '#333' : '#fff')};

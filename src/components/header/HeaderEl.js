@@ -50,7 +50,7 @@ export const HeaderInner = styled.div`
 `
 
 export const HeaderNav = styled.nav`
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
