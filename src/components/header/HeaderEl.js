@@ -56,9 +56,7 @@ export const HeaderNav = styled.nav`
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 767px){
-        margin: 0 5%;
-    }
+    padding: 0 15px;
 
 `
 export const HeaderItem = styled.li`
@@ -73,7 +71,8 @@ export const HeaderItem = styled.li`
 export const HeaderList = styled.ul`
     list-style: none;
     display: flex;
-
+    margin-right: 1rem;
+    padding: 0;
 `
 
 export const HeaderLinks = styled(LinkS)`

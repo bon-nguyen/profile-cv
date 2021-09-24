@@ -3,7 +3,6 @@ import {Link as LinkS} from 'react-scroll';
 
 export const Button = styled(LinkS)`
     border-radius: 1.5rem;
-    margin: 1rem;
     border: none;
     display: flex;
     align-item: center;

@@ -1,14 +1,13 @@
 import styled from "styled-components/macro";
 import { Link as LinkS } from 'react-scroll';
 
-// CloseIcon, Icon, SidebarContainer,SideBarWrap,SidebarLink,SidebarNav
+
 export const SidebarContainer = styled.aside`
     @media (max-width: 767px){
-        display: block;
         overflow: hidden;
-        margin-top: 15px;
         height: ${({isOpen}) => (isOpen ? '185px' : '0px')};
         opacity: ${({isOpen}) => (isOpen ? '1' : '0')};
+        
         transition: all .3s ease-in-out;
     }
 

@@ -6,18 +6,18 @@ import { Link as LinkS } from 'react-scroll';
 export const HeroSection = styled.section`
     position: relative;
     background-color: #e5fbee;
-    
+    padding: 2rem 0;
 `
 
 export const HeroContainer = styled.div`
     display: flex;
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto;
     overflow: hidden;
     justify-content: space-between;
+    padding: 0 15px;
 
     @media (max-width: 767px){
-        margin: 0 5%;
         flex-direction: column;
     }
 
@@ -36,7 +36,7 @@ export const HeroWrap = styled.div`
     align-items: center;
 
     @media ( max-width: 767px){
-        max-width: 100%;
+        max-width: 80%;
         justify-content: flex-start;
     }
 
@@ -46,11 +46,11 @@ export const HeroWrap = styled.div`
 
 export const HeroContent = styled.div`
     max-width: 50%;
-    padding: 135px 0;
+    padding: 100px 0;
 
     @media (max-width: 767px){
         max-width: 100%;
-        padding: 80px 0px 10px;
+        padding: 50px 0px 0px;
     }
 
 `
@@ -91,7 +91,6 @@ export const HeroSocial = styled.div`
         align-items: center;
         list-style: none;
         padding: 0;
-
 
         li:first-child a{
             margin: 0;
@@ -198,19 +197,19 @@ export const HeroTextAnimation = styled.span`
         animation-delay: 1.8s;
     }
     span:nth-child(9){
-        animation-delay: 2s;
+        animation-delay: 1.9s;
     }
     span:nth-child(10){
-        animation-delay: 2.2s;
+        animation-delay: 2s;
     }
     span:nth-child(11){
-        animation-delay: 2.4s;
+        animation-delay: 2.1s;
     }
     span:nth-child(12){
-        animation-delay: 2.6s;
+        animation-delay: 2.2s;
     }
     span:nth-child(13){
-        animation-delay: 3s;
+        animation-delay: 2.3s;
     }
 `
 
