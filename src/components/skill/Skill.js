@@ -23,10 +23,6 @@ export const SkillList = styled.ul`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
-    @media (max-width: 600px){
-        justify-content: flex-start;
-    }
     > li{
         cursor: pointer;
         @media (max-width: 767px){
