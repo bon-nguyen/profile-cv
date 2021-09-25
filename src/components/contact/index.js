@@ -1,24 +1,24 @@
 
- import { Formik,FastField , Form, Field, ErrorMessage, getIn  } from 'formik';
-import React from 'react';
-import Section from '../section';
+ import { ErrorMessage, Form, Formik } from 'formik';
+import React, { useEffect, useState } from 'react';
 import * as Yup from "yup";
-import {ContactSection, ContactContainer, ContactWrap, ContactFormGroup,ContactFormGroupItem } from './Contact';
-import { Button } from '../button/buttonEl';
+import Section from '../section';
+import {ContactCode ,ContactSubmit, ContactContainer, ContactFormArea, ContactFormError, ContactFormField, ContactFormGroup, ContactSection, ContactWrap } from './Contact';
 
 
-const ContactSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
     name: Yup.string()
      .min(2, 'Too Short!')
      .max(50, 'Too Long!')
-     .required('Required'),
+     .required('Please enter name'),
     email: Yup.string()
-     .email('Invalid email')
-     .required('Required'),
+    .email('Invalid email')
+    .required('Please enter name'),
     message: Yup.string(),
 })
 
 const Contact = () => {
+    const [formValues, setFormValues] = useState(false);
     return (
         <ContactSection>
             <ContactContainer>
@@ -27,29 +27,78 @@ const Contact = () => {
                 </Section>
                 <ContactWrap>
                     <Formik
-                        initialValues={{
-                            name: '',
-                            email: '',
-                            message: '',
-                        }}
-                        validationSchema={ContactSchema}
-                        onSubmit={values => {
-                            // same shape as initial values
-                            console.log(values);
-                        }}
-                        >
-                        <Form>
-                            <ContactFormGroup>
-                                <ContactFormGroupItem>
-                                    <FastField  type="text"  name="name" />
-                                    <label htmlFor="name">Company Name</label>
-                                </ContactFormGroupItem>
-                                <ErrorMessage name="name" />
-                            </ContactFormGroup>
+                       initialValues={{
+                            name: "",
+                            email: "",
+                            message: "",
+                      }}
+                      validationSchema={validationSchema}
+                      onSubmit={(values, {resetForm}) => {
+                        console.log(values);
+                        if(values){
+                            setFormValues(true);
+                            resetForm({value: ''})
+                        }
+
+                      }}
+                    >
+                        {({
+                            values,
+                            errors,
+                            touched,
                             
-                            <Button type="submit" primary={true ? 1 : 0}>Send</Button>
-                        </Form>
-                      
+                            }) => {
+                            return (
+                                <Form method="post">
+                                    <ContactFormGroup>
+                                        <ContactFormField 
+                                            type="text"
+                                            name="name"
+                                            valid={touched.name && !errors.name}
+                                            error={touched.name && errors.name}
+                                            className={touched.name && !errors.name ? "hasText" : ""}
+
+                                        />
+                                        <label htmlFor="name">Full name</label>
+                                    </ContactFormGroup>
+                                    {errors.name && touched.name && (
+                                        <ErrorMessage name="name" component={ContactFormError} />
+                                    )}
+                                    <ContactFormGroup>
+                                        <ContactFormField 
+                                            type="email"
+                                            name="email"
+                                            valid={touched.email && !errors.email}
+                                            error={touched.email && errors.email}
+                                            className={touched.email && values.email ? "hasText" : ""}
+                                           
+                                        />
+                                        <label htmlFor="email">Email</label>
+                                    </ContactFormGroup>
+                                    {errors.email && touched.email && (
+                                        <ErrorMessage name="email" component={ContactFormError} />
+                                    )}
+
+                                    <ContactFormGroup>
+                                        <ContactFormArea
+                                            name="message"
+                                            row="3"
+                                            placeholder="Message"
+
+                                        />
+                                    </ContactFormGroup>
+                                    <ContactSubmit
+                                        type="submit"
+                                    >
+                                        Submit
+                                    </ContactSubmit>
+                                    {formValues &&
+                                    <ContactCode>Thanks You send email</ContactCode>
+                                    }
+                                </Form>
+                            )
+                            
+                        }}
                     </Formik>
                 </ContactWrap>
        
@@ -61,3 +110,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
+    
+{/* <Button type="submit" primary={true ? 1 : 0}>Send</Button> */}
