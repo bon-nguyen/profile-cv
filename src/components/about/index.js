@@ -17,7 +17,6 @@ const About = () => {
                         <AboutImg src="./images/05.svg" />
                     </AboutInner>
                     <AboutContent>
-               
                             <AboutTitle>I'm <span>Nguyen Tran Bon</span></AboutTitle>
                             <AboutSubTitle>UX Designer with Developer</AboutSubTitle>
                             <AboutText>Hello! I’m Bon. Fresher Web Developer specializing in front end development. Experienced with  stages of the development cycle for dynamic web projects.

@@ -4,6 +4,7 @@ import Contact from '../components/contact';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import Hero from '../components/hero';
+import Project from '../components/project';
 import Sidebar from '../components/sidebar';
 import Skill from '../components/skill';
 
@@ -22,6 +23,7 @@ const Home = () => {
                 <Hero />
                 <About />
                 <Contact />
+                <Project />
                 <Skill />
             </main>
             <Footer />

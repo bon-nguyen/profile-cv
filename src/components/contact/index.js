@@ -1,9 +1,9 @@
 
- import { ErrorMessage, Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import { ErrorMessage, Form, Formik } from 'formik';
+import React, { useState } from 'react';
 import * as Yup from "yup";
 import Section from '../section';
-import {ContactCode ,ContactSubmit, ContactContainer, ContactFormArea, ContactFormError, ContactFormField, ContactFormGroup, ContactSection, ContactWrap } from './Contact';
+import { ContactCode, ContactContainer, ContactFormArea, ContactFormError, ContactFormField, ContactFormGroup, ContactSection, ContactSubmit, ContactWrap } from './Contact';
 
 
 const validationSchema = Yup.object().shape({
@@ -34,10 +34,11 @@ const Contact = () => {
                       }}
                       validationSchema={validationSchema}
                       onSubmit={(values, {resetForm}) => {
-                        console.log(values);
                         if(values){
                             setFormValues(true);
                             resetForm({value: ''})
+                        }else{
+                            setFormValues(false);
                         }
 
                       }}
@@ -46,7 +47,8 @@ const Contact = () => {
                             values,
                             errors,
                             touched,
-                            
+                            isValid,
+                            isSubmitting,
                             }) => {
                             return (
                                 <Form method="post">
@@ -89,8 +91,9 @@ const Contact = () => {
                                     </ContactFormGroup>
                                     <ContactSubmit
                                         type="submit"
+                                        disabled={!isValid || isSubmitting}
                                     >
-                                        Submit
+                                        {isSubmitting ? `Submitting...` : `Submit`}
                                     </ContactSubmit>
                                     {formValues &&
                                     <ContactCode>Thanks You send email</ContactCode>
@@ -102,7 +105,6 @@ const Contact = () => {
                     </Formik>
                 </ContactWrap>
        
-
             </ContactContainer>
             
         </ContactSection>

@@ -57,12 +57,14 @@ export const ContactFormField = styled(ContactField)`
     &:focus,
     &:active{
         outline: 0;
+        background: #fff;
         &~label{
             top: 7px;
             font-size: 12px;
         }
     }
     &.hasText{
+        background: #fff;
         &~label{
             top: 7px;
             font-size: 12px;
@@ -71,20 +73,43 @@ export const ContactFormField = styled(ContactField)`
     ${({ valid }) =>
     valid &&
     css`
-        box-shadow: 0 0 10px rgb(0, 156, 38);
+
+        outline: 0;
+        background: #fff;
         &:focus,
         &:active{
+            outline: none;
                 &~label{
                     top: 7px;
                     font-size: 12px;
                 }
             }
         }
+        /* Autocomplete styles in Chrome*/
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+            -webkit-text-fill-color: green;
+            -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+            border: 2px solid #08d665;
+        }
+
     `}
     ${({ error }) =>
     error &&
     css`
         box-shadow: 0 0 10px #e87c03;
+        &:focus,
+        &:active {
+            outline: none;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-text-fill-color: green;
+                -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+                border: 2px solid #e87c03;
+            }
+        }
     `}
     
 `
@@ -117,6 +142,18 @@ export const ContactSubmit = styled.button`
         color: #333;
     }
 
+    &:disabled {
+        opacity: .5;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+            cursor: not-allowed;
+            color: #fff;
+            background: #08d665;
+        }
+    }
+    
     @media (max-width: 600px){
         display: inline-block;
         width: 100%;

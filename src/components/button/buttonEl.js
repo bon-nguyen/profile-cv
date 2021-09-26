@@ -1,7 +1,7 @@
-import styled from "styled-components/macro";
-import {Link as LinkS} from 'react-scroll';
+import styled, {css} from "styled-components/macro";
 
-export const Button = styled(LinkS)`
+
+export const Button = styled.a`
     border-radius: 1.5rem;
     border: none;
     display: flex;
@@ -24,4 +24,18 @@ export const Button = styled(LinkS)`
         color: ${({dark}) => (dark ? '#fff' : '#333')};
     }
     transition: all .3s ease-in-out;
+
+    ${({ disabled }) =>
+    disabled &&
+    css`
+        opacity: .5;
+        &:focus,
+        &:hover,
+        &:active {
+            cursor: not-allowed;
+            color: #fff;
+            background: #08d665;
+
+        }
+    `}
 `
