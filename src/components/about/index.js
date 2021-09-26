@@ -7,7 +7,7 @@ import Section from '../section';
 
 const About = () => {
     return (
-        <AboutSection>
+        <AboutSection id="about">
             <AboutContainer>
                 <Section>
                     <span>About</span> Me

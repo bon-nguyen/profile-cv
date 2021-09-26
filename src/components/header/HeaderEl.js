@@ -1,5 +1,4 @@
-import styled from "styled-components/macro";
-import { Link as LinkR } from "react-router-dom";
+import styled, {css} from "styled-components/macro";
 import { Link as LinkS } from 'react-scroll';
 // HeaderContainer, HeaderShape, HeaderShapeImg, HeaderWrap, HeaderLogo,HeaderLogoImg, HeaderInner, HeaderNav, HeaderItem, HeaderLinks 
 export const HeaderContainer = styled.header`
@@ -8,6 +7,21 @@ export const HeaderContainer = styled.header`
     position: relative;
     z-index: 10;
     overflow: hidden;
+    transition: .3s all ease;
+
+    ${({ scrollNav }) =>
+    scrollNav &&
+    css`
+        position: sticky;
+        top: 0;
+        left: 0;
+        padding: 0rem 0;
+        box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+
+        @media (max-width: 600px){
+            padding: .5rem 0;
+        }
+    `}
 `
 export const HeaderShape = styled.div`
     @media (max-width: 1200px){
@@ -27,7 +41,7 @@ export const HeaderWrap = styled.div`
 
 `
 
-export const HeaderLogo = styled(LinkR)`
+export const HeaderLogo = styled(LinkS)`
     width: 126px;
 
     @media (max-width: 768px){

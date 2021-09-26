@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
 const Contact = () => {
     const [formValues, setFormValues] = useState(false);
     return (
-        <ContactSection>
+        <ContactSection id="contact">
             <ContactContainer>
                 <Section>
                     <span>Contact</span> Me

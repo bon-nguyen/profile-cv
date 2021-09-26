@@ -4,6 +4,8 @@ export const SkillSection = styled.section`
     padding: 3rem 0;
     position: relative;
     background-color: #e5fbee;
+
+    
 `
 
 export const SkillContainer = styled.div`

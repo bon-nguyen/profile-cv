@@ -15,12 +15,19 @@ const Project = ()=> {
     const totalPost = listProject.length;
 
     const loopWithSlice = (start, end) => {
-        const slicedPosts = listProject.slice(start, end)
+        const slicedPosts = listProject.slice(start, end);
         arrayForHoldingPosts = slicedPosts;
-        setPostsToShow(arrayForHoldingPosts)
+        setPostsToShow(arrayForHoldingPosts);
     }
     useEffect(() => {
-        loopWithSlice(0, postsPerPage)
+        try {
+            async function fetchArrayProject(){
+                loopWithSlice(0, postsPerPage);
+            }
+            fetchArrayProject();
+        } catch (error) {
+            console.log("Fail", error.message);
+        }
     }, []);
 
 
@@ -31,13 +38,11 @@ const Project = ()=> {
         }else{
             ref.current += postsPerPage;
         }
-        console.log("post", totalPost);
-        console.log( 'red',ref);
 
     }
 
     return (
-        <ProjectSection>
+        <ProjectSection id="project">
             <ProjectContainer>
                 <Section>
                     <span>Pro</span>ject

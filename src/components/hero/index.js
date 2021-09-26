@@ -53,7 +53,7 @@ const Hero = () => {
     }, [] );
 
     return (
-        <HeroSection>
+        <HeroSection id="hero">
             <HeroShape>
                 <HeroShapeImage className="shape01" src="./images/02.png" alt="shape" />
                 <HeroShapeImage className="shape02" src="./images/03.png" alt="shape" />
@@ -81,7 +81,7 @@ const Hero = () => {
                                 Hire me
                             </Button></li>
                             <li>
-                                <HeroSocialLink><FaFacebookF /></HeroSocialLink>
+                                <HeroSocialLink src="" target="_blank"  title="facebook"><FaFacebookF /></HeroSocialLink>
                             </li>
                             <li>
                                 <HeroSocialLink><FaGithubAlt /></HeroSocialLink>

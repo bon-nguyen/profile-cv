@@ -5,7 +5,7 @@ import {SkillSection, SkillContainer, SkillWrap, SkillList, SkillImg} from './Sk
 
 const Skill = () => {
     return (
-        <SkillSection>
+        <SkillSection id="skill">
             <SkillContainer>
                 <Section>
                     <span>Skill</span> Me

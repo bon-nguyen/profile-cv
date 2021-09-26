@@ -33,8 +33,16 @@ export const ProjectItem = styled.div`
     transition: all .3s ease;
 
     &:hover{
-        transform: scale(1.1);
+        transform: scale(1.02);
         border-color: #999;
+    }
+
+    @media (max-width: 850px){
+        width: calc(50% - 30px - 2px);
+    }
+
+    @media(max-width: 450px){
+        width: calc(100% - 30px - 2px);
     }
 `
 export const ProjectInner = styled.div`
@@ -55,6 +63,11 @@ export const ProjectContent = styled.div`
 export const ProjectTitle = styled.h3`
     font-weight: 500;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+
+    @media (max-width: 600px){
+        font-size: 1rem;
+    }
 `
 export const ProjectContentTop = styled.div`
     padding: 1rem;
@@ -62,6 +75,8 @@ export const ProjectContentTop = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+
+
 `
 export const ProjectTechnology = styled.div`
     margin-top: auto;
@@ -83,6 +98,10 @@ export const ProjectTechnology = styled.div`
             white-space: nowrap;
             cursor: pointer;
             transition: all .3s ease;
+
+            @media (max-width: 600px){
+                font-size: 13px;
+            }
 
             &:hover{
                 color: #fff;

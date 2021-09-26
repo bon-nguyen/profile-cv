@@ -4,16 +4,37 @@ import {HeaderContainer, HeaderShape, HeaderShapeImg, HeaderList,
  HeaderLogo,HeaderLogoImg, HeaderInner, HeaderNav, HeaderItem, HeaderLinks, MobileIcon , HeaderNavMb} from './HeaderEl';
 
  import { FaBars, FaTimes} from 'react-icons/fa';
+import { useEffect, useState } from 'react/cjs/react.development';
 
 const Header = ({toggle, children, isOpen}) => {
+    const [scrollNav, setScrollNav] = useState(false);
+
+    const changeScrollNav = ()=>{
+        if(window.scrollY >= 50) {
+            setScrollNav(true);
+        }else{
+            setScrollNav(false);
+        }
+    }
+    
+    useEffect(()=>{
+
+        window.addEventListener('scroll', changeScrollNav);
+
+    },[])
     return (
-        <HeaderContainer>
+        <HeaderContainer scrollNav={scrollNav}>
             <HeaderShape>
                 <HeaderShapeImg src="/images/01.png" alt="shape"/>
             </HeaderShape>
             <HeaderNav>
                 <HeaderLogo
-                    to='home'
+                    to='hero'
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact='true'
+                    offset={-120}
                 >
                     <HeaderLogoImg src="/images/logo.png" alt="logo"/> 
                 </HeaderLogo>
@@ -32,7 +53,13 @@ const Header = ({toggle, children, isOpen}) => {
                     <HeaderList>
                         <HeaderItem>
                             <HeaderLinks 
-                                to='home'
+                                to='hero'
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-120}
+                                activeClass='active'
                             >
                                 Home
                             </HeaderLinks>
@@ -40,6 +67,11 @@ const Header = ({toggle, children, isOpen}) => {
                         <HeaderItem>
                             <HeaderLinks
                                 to="about"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
                             >
                                 About
                             </HeaderLinks>
@@ -47,24 +79,41 @@ const Header = ({toggle, children, isOpen}) => {
                         <HeaderItem>
                             <HeaderLinks
                                 to="skill"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
                             >
                                 Skill
                             </HeaderLinks>
                         </HeaderItem>
                         <HeaderItem>
                             <HeaderLinks
-                                to="contact"
-                            >
-                                Contact
-                            </HeaderLinks>
-                        </HeaderItem>
-                        <HeaderItem>
-                            <HeaderLinks
                                 to="project"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={-80}
                             >
                                 Project
                             </HeaderLinks>
                         </HeaderItem>
+                        <HeaderItem>
+                            <HeaderLinks
+                                to="contact"
+                                smooth={true}
+                                duration={500}
+                                spy={true}
+                                exact='true'
+                                offset={0}
+
+                            >
+                                Contact
+                            </HeaderLinks>
+                        </HeaderItem>
+
                     </HeaderList>
                     <Button
                         to="home"

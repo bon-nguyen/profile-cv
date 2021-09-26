@@ -35,7 +35,10 @@ export const SidebarLink = styled(LinkS)`
     border-top: 1px solid rgba(255,255,255,.5);
     transition: all .3s ease;
 
-    &:hover{
+    &:hover,{
+        background: #08d665;
+    }
+    &.active{
         background: #08d665;
     }
 `
